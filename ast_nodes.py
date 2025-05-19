@@ -21,7 +21,7 @@ class BinOp(): # Class for the binomial Operation :
         self.right = right
 
 
-class VerDecl():
+class VarDecl():
 
     def __init__(self , name  ,  expression):
         self.name  = name # Variable Name
