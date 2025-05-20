@@ -1,6 +1,13 @@
 
 
 # Enum Style for all the tokens that would be in the programming language : 
+
+
+'''
+Enums Defined here and then a class is defined to call the 
+enums and print them in the console : 
+
+'''
 LET_IT  = "LET_IT"
 PRINT = "PRINT"
 IDENTIFIER = "IDENTIFIER"

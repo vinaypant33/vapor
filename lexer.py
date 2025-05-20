@@ -1,3 +1,12 @@
+
+'''
+Lexer is used for the reading the code in the 
+character stream it is used wiht side by side with the tokenizer 
+to read the code so that i can be fed to the ast nodes for further processing 
+
+'''
+
+
 from tokens import *
 
 
