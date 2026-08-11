@@ -48,7 +48,7 @@ class Lexer():
     # To Read an identifier we have defined in the tokens : 
     def identifier(self):
         result  = ""
-        while self.current_char and (self.current_char.isalum() or self.current_char == "_"):
+        while self.current_char and (self.current_char.isalnum() or self.current_char == "_"):
             result+=self.current_char
             self.advance()
         if result == "let_it":
