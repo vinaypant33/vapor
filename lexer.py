@@ -55,6 +55,7 @@ class Lexer():
             return Token(LET_IT)
         elif result == "print":
             return Token(PRINT)
+        return Token(IDENTIFIER , result)
     
     def get_tokens(self):
         tokens  = []
