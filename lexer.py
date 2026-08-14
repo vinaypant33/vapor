@@ -18,7 +18,7 @@ class Lexer():
         if self.text:
             self.current_char = self.text[self.pos] 
         else:
-            None
+            self.current_char = None
         
     
     # To move by one character : Each time this function has to run to make sure everything is in control : 
