@@ -38,6 +38,7 @@ class Parser():
                 statements.append(self.print_stmt())
             else:
                 raise Exception (f"Unexpected Token {self.current_token}")
+        return Program(statements)
     
     def var_dec(self):
         self.eat(LET_IT)
