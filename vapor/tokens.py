@@ -9,3 +9,8 @@ where it starts so that error messages can point at the right place.
 # Keywords
 LET_IT = "LET_IT"
 PRINT = "PRINT"
+
+# Names and literal values
+IDENTIFIER = "IDENTIFIER"
+NUMBER = "NUMBER"
+STRING = "STRING"
