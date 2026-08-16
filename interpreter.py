@@ -27,7 +27,7 @@ class Interpreter():
         elif isinstance(node ,  BinOp):
             left = self.eval(node.left)
             right  = self.eval(node.right)
-            if node.op.tpe == 'PLUS':
+            if node.op.type == 'PLUS':
                 return left + right
         elif isinstance(node, VarDecl):
             value = self.eval(node.expr)
