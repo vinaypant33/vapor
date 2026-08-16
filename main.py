@@ -10,7 +10,10 @@ from env import Environment
 from interpreter import Interpreter
 
 # source_code  = eval(input(""))
-source_code  = "2 + 2"
+source_code  = """
+let_it x = 2 + 3
+print(x)
+"""
 
 '''
 Step by Step Interpretation for the code entered and the computation of the same : 
