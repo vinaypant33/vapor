@@ -30,8 +30,8 @@ class Interpreter():
             if node.op.type == 'PLUS':
                 return left + right
         elif isinstance(node, VarDecl):
-            value = self.eval(node.expr)
+            value = self.eval(node.expression)
             self.env.set(node.name, value)
         elif isinstance(node, Print):
-            value = self.eval(node.expr)
+            value = self.eval(node.expression)
             print(value)
