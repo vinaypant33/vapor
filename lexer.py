@@ -72,6 +72,9 @@ class Lexer():
             elif self.current_char == "+":
                 tokens.append(Token(PLUS))
                 self.advance()
+            elif self.current_char == "-":
+                tokens.append(Token(MINUS))
+                self.advance()
             elif self.current_char == "(":
                 tokens.append(Token(LPAREN))
                 self.advance()

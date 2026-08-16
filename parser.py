@@ -58,9 +58,9 @@ class Parser():
 
     def expr(self):
         left  = self.term()
-        while self.current_token.type  == PLUS: 
+        while self.current_token.type in (PLUS, MINUS):
             op = self.current_token
-            self.eat(PLUS)
+            self.eat(op.type)
             right  = self.term()
             left  = BinOp(left , op , right)
         return left

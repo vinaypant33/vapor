@@ -29,6 +29,8 @@ class Interpreter():
             right  = self.eval(node.right)
             if node.op.type == 'PLUS':
                 return left + right
+            if node.op.type == 'MINUS':
+                return left - right
         elif isinstance(node, VarDecl):
             value = self.eval(node.expression)
             self.env.set(node.name, value)
