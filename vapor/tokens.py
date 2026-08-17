@@ -77,3 +77,8 @@ class Token:
         if self.type == STRING:
             return f'string "{self.value}"'
         return TOKEN_DESCRIPTIONS.get(self.type, self.type)
+
+    def __eq__(self, other):
+        if not isinstance(other, Token):
+            return NotImplemented
+        return self.type == other.type and self.value == other.value
