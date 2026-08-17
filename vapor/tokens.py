@@ -82,3 +82,8 @@ class Token:
         if not isinstance(other, Token):
             return NotImplemented
         return self.type == other.type and self.value == other.value
+
+    def __repr__(self):
+        if self.value is not None:
+            return f"{self.type}:{self.value!r}"
+        return self.type
