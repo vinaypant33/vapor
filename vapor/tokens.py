@@ -57,3 +57,13 @@ TOKEN_DESCRIPTIONS = {
     NEWLINE: "end of line",
     EOF: "end of file",
 }
+
+
+class Token:
+    """A single piece of Vapor source code, such as a number or a '+'."""
+
+    def __init__(self, type_, value=None, line=1, column=1):
+        self.type = type_
+        self.value = value
+        self.line = line
+        self.column = column
