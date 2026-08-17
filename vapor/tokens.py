@@ -37,3 +37,23 @@ KEYWORDS = {
     "let_it": LET_IT,
     "print": PRINT,
 }
+
+# Human friendly names, used in error messages.
+TOKEN_DESCRIPTIONS = {
+    LET_IT: "'let_it'",
+    PRINT: "'print'",
+    IDENTIFIER: "a variable name",
+    NUMBER: "a number",
+    STRING: "a string",
+    EQUAL: "'='",
+    PLUS: "'+'",
+    MINUS: "'-'",
+    STAR: "'*'",
+    SLASH: "'/'",
+    PERCENT: "'%'",
+    LPAREN: "'('",
+    RPAREN: "')'",
+    COMMA: "','",
+    NEWLINE: "end of line",
+    EOF: "end of file",
+}
