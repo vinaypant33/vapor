@@ -27,3 +27,7 @@ PERCENT = "PERCENT"
 LPAREN = "LPAREN"
 RPAREN = "RPAREN"
 COMMA = "COMMA"
+
+# Structure
+NEWLINE = "NEWLINE"  # end of a statement: a line break or ';'
+EOF = "EOF"  # end of the source code
