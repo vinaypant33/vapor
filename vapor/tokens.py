@@ -67,3 +67,13 @@ class Token:
         self.value = value
         self.line = line
         self.column = column
+
+    def describe(self):
+        """Describe the token for an error message, e.g. "number 42"."""
+        if self.type == IDENTIFIER:
+            return f"variable name '{self.value}'"
+        if self.type == NUMBER:
+            return f"number {self.value}"
+        if self.type == STRING:
+            return f'string "{self.value}"'
+        return TOKEN_DESCRIPTIONS.get(self.type, self.type)
