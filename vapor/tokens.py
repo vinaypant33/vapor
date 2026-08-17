@@ -31,3 +31,9 @@ COMMA = "COMMA"
 # Structure
 NEWLINE = "NEWLINE"  # end of a statement: a line break or ';'
 EOF = "EOF"  # end of the source code
+
+# Words that have a special meaning and cannot be used as variable names.
+KEYWORDS = {
+    "let_it": LET_IT,
+    "print": PRINT,
+}
