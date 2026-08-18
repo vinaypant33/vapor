@@ -18,3 +18,8 @@ class VaporError(Exception):
         self.message = message
         self.line = line
         self.column = column
+
+    def __str__(self):
+        if self.line is not None:
+            return f"{self.kind} (line {self.line}, column {self.column}): {self.message}"
+        return f"{self.kind}: {self.message}"
