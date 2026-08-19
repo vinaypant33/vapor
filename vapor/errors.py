@@ -35,3 +35,9 @@ class ParseError(VaporError):
     """The tokens do not form a valid Vapor statement."""
 
     kind = "SyntaxError"
+
+
+class VaporRuntimeError(VaporError):
+    """Something went wrong while the program was running."""
+
+    kind = "RuntimeError"
