@@ -29,3 +29,9 @@ class LexerError(VaporError):
     """The source code contains a character or literal that is not valid."""
 
     kind = "LexerError"
+
+
+class ParseError(VaporError):
+    """The tokens do not form a valid Vapor statement."""
+
+    kind = "SyntaxError"
