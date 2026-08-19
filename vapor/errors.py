@@ -23,3 +23,9 @@ class VaporError(Exception):
         if self.line is not None:
             return f"{self.kind} (line {self.line}, column {self.column}): {self.message}"
         return f"{self.kind}: {self.message}"
+
+
+class LexerError(VaporError):
+    """The source code contains a character or literal that is not valid."""
+
+    kind = "LexerError"
