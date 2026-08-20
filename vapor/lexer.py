@@ -49,3 +49,14 @@ ESCAPES = {
 }
 
 WHITESPACE = " \t\r"
+
+
+class Lexer:
+    """Turns Vapor source code into a list of tokens."""
+
+    def __init__(self, text):
+        self.text = text
+        self.pos = 0
+        self.line = 1
+        self.column = 1
+        self.current_char = self.text[0] if self.text else None
