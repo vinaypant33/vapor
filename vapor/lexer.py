@@ -39,3 +39,13 @@ SINGLE_CHAR_TOKENS = {
     ",": COMMA,
     ";": NEWLINE,
 }
+
+# Escape sequences allowed inside strings, e.g. "line one\nline two".
+ESCAPES = {
+    "n": "\n",
+    "t": "\t",
+    '"': '"',
+    "\\": "\\",
+}
+
+WHITESPACE = " \t\r"
