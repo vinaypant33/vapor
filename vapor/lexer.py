@@ -73,3 +73,7 @@ class Lexer:
             self.current_char = self.text[self.pos]
         else:
             self.current_char = None
+
+    def skip_whitespace(self):
+        while self.current_char is not None and self.current_char in WHITESPACE:
+            self.advance()
