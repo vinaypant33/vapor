@@ -77,3 +77,8 @@ class Lexer:
     def skip_whitespace(self):
         while self.current_char is not None and self.current_char in WHITESPACE:
             self.advance()
+
+    def skip_comment(self):
+        """Comments start with '#' and run to the end of the line."""
+        while self.current_char is not None and self.current_char != "\n":
+            self.advance()
