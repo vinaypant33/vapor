@@ -60,3 +60,16 @@ class Lexer:
         self.line = 1
         self.column = 1
         self.current_char = self.text[0] if self.text else None
+
+    def advance(self):
+        """Move one character forward, keeping track of line and column."""
+        if self.current_char == "\n":
+            self.line += 1
+            self.column = 1
+        else:
+            self.column += 1
+        self.pos += 1
+        if self.pos < len(self.text):
+            self.current_char = self.text[self.pos]
+        else:
+            self.current_char = None
