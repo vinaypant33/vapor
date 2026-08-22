@@ -82,3 +82,31 @@ class Lexer:
         """Comments start with '#' and run to the end of the line."""
         while self.current_char is not None and self.current_char != "\n":
             self.advance()
+
+    def number(self):
+        """Read a whole number (42) or a decimal number (3.14)."""
+        line, column = self.line, self.column
+        result = ""
+        seen_dot = False
+        while self.current_char is not None and (
+            self.current_char.isdigit() or self.current_char == "."
+        ):
+            if self.current_char == ".":
+                if seen_dot:
+                    raise LexerError(
+                        f"Number '{result}.' has more than one decimal point",
+                        line,
+                        column,
+                    )
+                seen_dot = True
+            result += self.current_char
+            self.advance()
+
+        if result.endswith("."):
+            raise LexerError(
+                f"Number '{result}' needs a digit after the decimal point",
+                line,
+                column,
+            )
+        value = float(result) if seen_dot else int(result)
+        return Token(NUMBER, value, line, column)
