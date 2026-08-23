@@ -152,3 +152,30 @@ class Lexer:
             chars.append(self.current_char)
             self.advance()
         return Token(STRING, "".join(chars), line, column)
+
+    def get_tokens(self):
+        """Read the whole source code and return the list of tokens."""
+        tokens = []
+        while self.current_char is not None:
+            char = self.current_char
+            if char in WHITESPACE:
+                self.skip_whitespace()
+            elif char == "#":
+                self.skip_comment()
+            elif char == "\n":
+                tokens.append(Token(NEWLINE, None, self.line, self.column))
+                self.advance()
+            elif char.isdigit():
+                tokens.append(self.number())
+            elif char.isalpha() or char == "_":
+                tokens.append(self.identifier())
+            elif char == '"':
+                tokens.append(self.string())
+            elif char in SINGLE_CHAR_TOKENS:
+                tokens.append(Token(SINGLE_CHAR_TOKENS[char], None, self.line, self.column))
+                self.advance()
+            else:
+                raise LexerError(f"Illegal character '{char}'", self.line, self.column)
+
+        tokens.append(Token(EOF, None, self.line, self.column))
+        return tokens
