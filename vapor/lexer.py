@@ -110,3 +110,17 @@ class Lexer:
             )
         value = float(result) if seen_dot else int(result)
         return Token(NUMBER, value, line, column)
+
+    def identifier(self):
+        """Read a variable name or a keyword such as 'let_it'."""
+        line, column = self.line, self.column
+        result = ""
+        while self.current_char is not None and (
+            self.current_char.isalnum() or self.current_char == "_"
+        ):
+            result += self.current_char
+            self.advance()
+
+        if result in KEYWORDS:
+            return Token(KEYWORDS[result], None, line, column)
+        return Token(IDENTIFIER, result, line, column)
