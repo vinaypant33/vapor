@@ -124,3 +124,31 @@ class Lexer:
         if result in KEYWORDS:
             return Token(KEYWORDS[result], None, line, column)
         return Token(IDENTIFIER, result, line, column)
+
+    def string(self):
+        """Read a string in double quotes, handling escape sequences."""
+        line, column = self.line, self.column
+        self.advance()  # skip the opening quote
+        chars = []
+        while True:
+            if self.current_char is None or self.current_char == "\n":
+                raise LexerError("String is missing its closing '\"'", line, column)
+            if self.current_char == '"':
+                self.advance()  # skip the closing quote
+                break
+            if self.current_char == "\\":
+                escape_line, escape_column = self.line, self.column
+                self.advance()
+                if self.current_char not in ESCAPES:
+                    shown = self.current_char if self.current_char is not None else ""
+                    raise LexerError(
+                        f"Unknown escape sequence '\\{shown}'",
+                        escape_line,
+                        escape_column,
+                    )
+                chars.append(ESCAPES[self.current_char])
+                self.advance()
+                continue
+            chars.append(self.current_char)
+            self.advance()
+        return Token(STRING, "".join(chars), line, column)
