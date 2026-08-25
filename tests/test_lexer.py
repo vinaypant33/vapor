@@ -28,3 +28,8 @@ def token_types(source):
 
 def token_values(source):
     return [token.value for token in Lexer(source).get_tokens()]
+
+
+class TestBasics(unittest.TestCase):
+    def test_empty_source_gives_only_eof(self):
+        self.assertEqual(token_types(""), [EOF])
