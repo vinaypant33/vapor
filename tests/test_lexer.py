@@ -24,3 +24,7 @@ from vapor.tokens import (
 
 def token_types(source):
     return [token.type for token in Lexer(source).get_tokens()]
+
+
+def token_values(source):
+    return [token.value for token in Lexer(source).get_tokens()]
