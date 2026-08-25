@@ -36,3 +36,11 @@ class TestBasics(unittest.TestCase):
 
     def test_whitespace_is_skipped(self):
         self.assertEqual(token_types("   \t  "), [EOF])
+
+
+class TestNumbers(unittest.TestCase):
+    def test_whole_number(self):
+        tokens = Lexer("42").get_tokens()
+        self.assertEqual(tokens[0].type, NUMBER)
+        self.assertEqual(tokens[0].value, 42)
+        self.assertIsInstance(tokens[0].value, int)
