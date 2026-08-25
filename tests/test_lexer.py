@@ -33,3 +33,6 @@ def token_values(source):
 class TestBasics(unittest.TestCase):
     def test_empty_source_gives_only_eof(self):
         self.assertEqual(token_types(""), [EOF])
+
+    def test_whitespace_is_skipped(self):
+        self.assertEqual(token_types("   \t  "), [EOF])
