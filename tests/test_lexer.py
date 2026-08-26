@@ -44,3 +44,8 @@ class TestNumbers(unittest.TestCase):
         self.assertEqual(tokens[0].type, NUMBER)
         self.assertEqual(tokens[0].value, 42)
         self.assertIsInstance(tokens[0].value, int)
+
+    def test_decimal_number(self):
+        tokens = Lexer("3.14").get_tokens()
+        self.assertEqual(tokens[0].value, 3.14)
+        self.assertIsInstance(tokens[0].value, float)
