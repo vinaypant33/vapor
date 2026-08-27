@@ -53,3 +53,7 @@ class TestNumbers(unittest.TestCase):
     def test_two_decimal_points_is_an_error(self):
         with self.assertRaises(LexerError):
             Lexer("1.2.3").get_tokens()
+
+    def test_trailing_decimal_point_is_an_error(self):
+        with self.assertRaises(LexerError):
+            Lexer("5.").get_tokens()
