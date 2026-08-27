@@ -49,3 +49,7 @@ class TestNumbers(unittest.TestCase):
         tokens = Lexer("3.14").get_tokens()
         self.assertEqual(tokens[0].value, 3.14)
         self.assertIsInstance(tokens[0].value, float)
+
+    def test_two_decimal_points_is_an_error(self):
+        with self.assertRaises(LexerError):
+            Lexer("1.2.3").get_tokens()
