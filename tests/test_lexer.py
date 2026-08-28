@@ -73,3 +73,11 @@ class TestNamesAndKeywords(unittest.TestCase):
 
     def test_keyword_prefix_is_still_an_identifier(self):
         self.assertEqual(token_types("printer"), [IDENTIFIER, EOF])
+
+
+class TestOperators(unittest.TestCase):
+    def test_all_operators(self):
+        self.assertEqual(
+            token_types("= + - * / % ( ) ,"),
+            [EQUAL, PLUS, MINUS, STAR, SLASH, PERCENT, LPAREN, RPAREN, COMMA, EOF],
+        )
