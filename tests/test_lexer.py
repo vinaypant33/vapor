@@ -57,3 +57,8 @@ class TestNumbers(unittest.TestCase):
     def test_trailing_decimal_point_is_an_error(self):
         with self.assertRaises(LexerError):
             Lexer("5.").get_tokens()
+
+
+class TestNamesAndKeywords(unittest.TestCase):
+    def test_keywords(self):
+        self.assertEqual(token_types("let_it print"), [LET_IT, PRINT, EOF])
