@@ -70,3 +70,6 @@ class TestNamesAndKeywords(unittest.TestCase):
 
     def test_identifier_may_start_with_underscore(self):
         self.assertEqual(token_types("_hidden"), [IDENTIFIER, EOF])
+
+    def test_keyword_prefix_is_still_an_identifier(self):
+        self.assertEqual(token_types("printer"), [IDENTIFIER, EOF])
