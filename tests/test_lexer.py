@@ -103,3 +103,7 @@ class TestStrings(unittest.TestCase):
     def test_escape_sequences(self):
         tokens = Lexer(r'"a\nb\tc\"d\\e"').get_tokens()
         self.assertEqual(tokens[0].value, 'a\nb\tc"d\\e')
+
+    def test_unknown_escape_is_an_error(self):
+        with self.assertRaises(LexerError):
+            Lexer(r'"bad \q"').get_tokens()
