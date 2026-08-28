@@ -67,3 +67,6 @@ class TestNamesAndKeywords(unittest.TestCase):
         tokens = Lexer("total_2").get_tokens()
         self.assertEqual(tokens[0].type, IDENTIFIER)
         self.assertEqual(tokens[0].value, "total_2")
+
+    def test_identifier_may_start_with_underscore(self):
+        self.assertEqual(token_types("_hidden"), [IDENTIFIER, EOF])
