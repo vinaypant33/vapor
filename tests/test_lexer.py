@@ -99,3 +99,7 @@ class TestStrings(unittest.TestCase):
 
     def test_empty_string(self):
         self.assertEqual(token_values('""'), ["", None])
+
+    def test_escape_sequences(self):
+        tokens = Lexer(r'"a\nb\tc\"d\\e"').get_tokens()
+        self.assertEqual(tokens[0].value, 'a\nb\tc"d\\e')
