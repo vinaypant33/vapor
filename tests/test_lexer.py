@@ -89,3 +89,10 @@ class TestOperators(unittest.TestCase):
         with self.assertRaises(LexerError) as context:
             Lexer("let_it x = 5 $").get_tokens()
         self.assertIn("'$'", str(context.exception))
+
+
+class TestStrings(unittest.TestCase):
+    def test_simple_string(self):
+        tokens = Lexer('"hello world"').get_tokens()
+        self.assertEqual(tokens[0].type, STRING)
+        self.assertEqual(tokens[0].value, "hello world")
