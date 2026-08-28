@@ -81,3 +81,6 @@ class TestOperators(unittest.TestCase):
             token_types("= + - * / % ( ) ,"),
             [EQUAL, PLUS, MINUS, STAR, SLASH, PERCENT, LPAREN, RPAREN, COMMA, EOF],
         )
+
+    def test_parentheses_are_not_mixed_up(self):
+        self.assertEqual(token_types("()"), [LPAREN, RPAREN, EOF])
