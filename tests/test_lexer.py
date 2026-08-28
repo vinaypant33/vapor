@@ -96,3 +96,6 @@ class TestStrings(unittest.TestCase):
         tokens = Lexer('"hello world"').get_tokens()
         self.assertEqual(tokens[0].type, STRING)
         self.assertEqual(tokens[0].value, "hello world")
+
+    def test_empty_string(self):
+        self.assertEqual(token_values('""'), ["", None])
