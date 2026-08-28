@@ -84,3 +84,8 @@ class TestOperators(unittest.TestCase):
 
     def test_parentheses_are_not_mixed_up(self):
         self.assertEqual(token_types("()"), [LPAREN, RPAREN, EOF])
+
+    def test_illegal_character(self):
+        with self.assertRaises(LexerError) as context:
+            Lexer("let_it x = 5 $").get_tokens()
+        self.assertIn("'$'", str(context.exception))
