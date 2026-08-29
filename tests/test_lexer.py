@@ -107,3 +107,7 @@ class TestStrings(unittest.TestCase):
     def test_unknown_escape_is_an_error(self):
         with self.assertRaises(LexerError):
             Lexer(r'"bad \q"').get_tokens()
+
+    def test_unterminated_string_is_an_error(self):
+        with self.assertRaises(LexerError):
+            Lexer('"no end').get_tokens()
