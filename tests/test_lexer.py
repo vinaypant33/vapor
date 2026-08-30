@@ -115,3 +115,11 @@ class TestStrings(unittest.TestCase):
     def test_string_cannot_span_lines(self):
         with self.assertRaises(LexerError):
             Lexer('"line one\nline two"').get_tokens()
+
+
+class TestLinesAndComments(unittest.TestCase):
+    def test_newline_and_semicolon_end_statements(self):
+        self.assertEqual(
+            token_types("1\n2;3"),
+            [NUMBER, NEWLINE, NUMBER, NEWLINE, NUMBER, EOF],
+        )
