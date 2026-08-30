@@ -111,3 +111,7 @@ class TestStrings(unittest.TestCase):
     def test_unterminated_string_is_an_error(self):
         with self.assertRaises(LexerError):
             Lexer('"no end').get_tokens()
+
+    def test_string_cannot_span_lines(self):
+        with self.assertRaises(LexerError):
+            Lexer('"line one\nline two"').get_tokens()
