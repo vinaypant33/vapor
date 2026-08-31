@@ -123,3 +123,6 @@ class TestLinesAndComments(unittest.TestCase):
             token_types("1\n2;3"),
             [NUMBER, NEWLINE, NUMBER, NEWLINE, NUMBER, EOF],
         )
+
+    def test_comment_is_skipped(self):
+        self.assertEqual(token_types("# just a comment"), [EOF])
