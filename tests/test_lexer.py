@@ -126,3 +126,6 @@ class TestLinesAndComments(unittest.TestCase):
 
     def test_comment_is_skipped(self):
         self.assertEqual(token_types("# just a comment"), [EOF])
+
+    def test_comment_after_code(self):
+        self.assertEqual(token_types("x # the x"), [IDENTIFIER, EOF])
