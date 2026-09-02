@@ -129,3 +129,9 @@ class TestLinesAndComments(unittest.TestCase):
 
     def test_comment_after_code(self):
         self.assertEqual(token_types("x # the x"), [IDENTIFIER, EOF])
+
+    def test_line_and_column_are_tracked(self):
+        tokens = Lexer("let_it x = 1\n  print(x)").get_tokens()
+        print_token = tokens[5]
+        self.assertEqual(print_token.type, PRINT)
+        self.assertEqual((print_token.line, print_token.column), (2, 3))
