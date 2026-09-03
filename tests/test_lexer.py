@@ -135,3 +135,12 @@ class TestLinesAndComments(unittest.TestCase):
         print_token = tokens[5]
         self.assertEqual(print_token.type, PRINT)
         self.assertEqual((print_token.line, print_token.column), (2, 3))
+
+    def test_error_reports_position(self):
+        with self.assertRaises(LexerError) as context:
+            Lexer("x = 1\ny = @").get_tokens()
+        self.assertEqual((context.exception.line, context.exception.column), (2, 5))
+
+
+if __name__ == "__main__":
+    unittest.main()
