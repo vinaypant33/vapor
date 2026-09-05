@@ -10,3 +10,11 @@ class Node:
     def __init__(self, line=None, column=None):
         self.line = line
         self.column = column
+
+    def __repr__(self):
+        fields = ", ".join(
+            f"{name}={value!r}"
+            for name, value in vars(self).items()
+            if name not in ("line", "column")
+        )
+        return f"{type(self).__name__}({fields})"
