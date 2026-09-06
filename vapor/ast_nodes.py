@@ -29,3 +29,11 @@ class Number(Node):
     def __init__(self, value, line=None, column=None):
         super().__init__(line, column)
         self.value = value
+
+
+class String(Node):
+    """A string literal such as "hello"."""
+
+    def __init__(self, value, line=None, column=None):
+        super().__init__(line, column)
+        self.value = value
