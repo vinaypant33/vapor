@@ -18,3 +18,14 @@ class Node:
             if name not in ("line", "column")
         )
         return f"{type(self).__name__}({fields})"
+
+
+# ---- Expressions: things that produce a value ----
+
+
+class Number(Node):
+    """A number literal such as 42 or 3.14."""
+
+    def __init__(self, value, line=None, column=None):
+        super().__init__(line, column)
+        self.value = value
