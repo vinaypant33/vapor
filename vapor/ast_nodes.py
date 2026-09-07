@@ -37,3 +37,11 @@ class String(Node):
     def __init__(self, value, line=None, column=None):
         super().__init__(line, column)
         self.value = value
+
+
+class Var(Node):
+    """Reading the value of a variable."""
+
+    def __init__(self, name, line=None, column=None):
+        super().__init__(line, column)
+        self.name = name
