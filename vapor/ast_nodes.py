@@ -55,3 +55,12 @@ class BinOp(Node):
         self.left = left
         self.op = op
         self.right = right
+
+
+class UnaryOp(Node):
+    """A unary operation such as -x."""
+
+    def __init__(self, op, operand, line=None, column=None):
+        super().__init__(line, column)
+        self.op = op
+        self.operand = operand
