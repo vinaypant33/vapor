@@ -45,3 +45,13 @@ class Var(Node):
     def __init__(self, name, line=None, column=None):
         super().__init__(line, column)
         self.name = name
+
+
+class BinOp(Node):
+    """A binary operation such as a + b. `op` is the symbol, e.g. "+"."""
+
+    def __init__(self, left, op, right, line=None, column=None):
+        super().__init__(line, column)
+        self.left = left
+        self.op = op
+        self.right = right
