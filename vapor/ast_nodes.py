@@ -76,3 +76,12 @@ class VarDecl(Node):
         super().__init__(line, column)
         self.name = name
         self.expression = expression
+
+
+class Assign(Node):
+    """name = expression (the variable must already exist)"""
+
+    def __init__(self, name, expression, line=None, column=None):
+        super().__init__(line, column)
+        self.name = name
+        self.expression = expression
