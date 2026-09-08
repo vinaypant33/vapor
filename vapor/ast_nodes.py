@@ -64,3 +64,15 @@ class UnaryOp(Node):
         super().__init__(line, column)
         self.op = op
         self.operand = operand
+
+
+# ---- Statements: things that do something ----
+
+
+class VarDecl(Node):
+    """let_it name = expression"""
+
+    def __init__(self, name, expression, line=None, column=None):
+        super().__init__(line, column)
+        self.name = name
+        self.expression = expression
