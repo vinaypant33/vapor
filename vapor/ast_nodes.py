@@ -101,3 +101,11 @@ class ExprStatement(Node):
     def __init__(self, expression, line=None, column=None):
         super().__init__(line, column)
         self.expression = expression
+
+
+class Program(Node):
+    """The whole program: a list of statements."""
+
+    def __init__(self, statements):
+        super().__init__(1, 1)
+        self.statements = statements
