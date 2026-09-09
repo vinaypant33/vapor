@@ -70,3 +70,8 @@ class Parser:
     @property
     def current_token(self):
         return self.tokens[self.pos]
+
+    def peek(self, offset=1):
+        """Look at a token ahead without moving."""
+        index = min(self.pos + offset, len(self.tokens) - 1)
+        return self.tokens[index]
