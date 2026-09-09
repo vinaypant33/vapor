@@ -93,3 +93,11 @@ class Print(Node):
     def __init__(self, expressions, line=None, column=None):
         super().__init__(line, column)
         self.expressions = expressions
+
+
+class ExprStatement(Node):
+    """An expression used on its own line, e.g. `2 + 2` in the REPL."""
+
+    def __init__(self, expression, line=None, column=None):
+        super().__init__(line, column)
+        self.expression = expression
