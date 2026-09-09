@@ -58,3 +58,11 @@ OPERATOR_SYMBOLS = {
     SLASH: "/",
     PERCENT: "%",
 }
+
+
+class Parser:
+    """Turns a list of tokens into a Program node."""
+
+    def __init__(self, tokens):
+        self.tokens = tokens
+        self.pos = 0
