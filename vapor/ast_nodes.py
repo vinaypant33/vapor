@@ -85,3 +85,11 @@ class Assign(Node):
         super().__init__(line, column)
         self.name = name
         self.expression = expression
+
+
+class Print(Node):
+    """print(expression, expression, ...)"""
+
+    def __init__(self, expressions, line=None, column=None):
+        super().__init__(line, column)
+        self.expressions = expressions
