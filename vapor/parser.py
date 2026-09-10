@@ -75,3 +75,9 @@ class Parser:
         """Look at a token ahead without moving."""
         index = min(self.pos + offset, len(self.tokens) - 1)
         return self.tokens[index]
+
+    def advance(self):
+        token = self.current_token
+        if self.pos < len(self.tokens) - 1:
+            self.pos += 1
+        return token
