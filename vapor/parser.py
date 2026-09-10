@@ -81,3 +81,7 @@ class Parser:
         if self.pos < len(self.tokens) - 1:
             self.pos += 1
         return token
+
+    def error(self, message, token=None):
+        token = token or self.current_token
+        raise ParseError(message, token.line, token.column)
