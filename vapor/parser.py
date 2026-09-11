@@ -96,3 +96,18 @@ class Parser:
     def skip_newlines(self):
         while self.current_token.type == NEWLINE:
             self.advance()
+
+    # ---- Statements ----
+
+    def parse(self):
+        statements = []
+        self.skip_newlines()
+        while self.current_token.type != EOF:
+            statements.append(self.statement())
+            if self.current_token.type not in (NEWLINE, EOF):
+                self.error(
+                    "Expected a new line or ';' after the statement but found "
+                    f"{self.current_token.describe()}"
+                )
+            self.skip_newlines()
+        return Program(statements)
