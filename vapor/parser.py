@@ -85,3 +85,10 @@ class Parser:
     def error(self, message, token=None):
         token = token or self.current_token
         raise ParseError(message, token.line, token.column)
+
+    def eat(self, token_type):
+        """Consume a token of the expected type, or raise a syntax error."""
+        if self.current_token.type != token_type:
+            expected = TOKEN_DESCRIPTIONS.get(token_type, token_type)
+            self.error(f"Expected {expected} but found {self.current_token.describe()}")
+        return self.advance()
