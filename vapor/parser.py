@@ -129,3 +129,9 @@ class Parser:
         self.eat(EQUAL)
         expression = self.expr()
         return VarDecl(name_token.value, expression, start.line, start.column)
+
+    def assignment(self):
+        name_token = self.eat(IDENTIFIER)
+        self.eat(EQUAL)
+        expression = self.expr()
+        return Assign(name_token.value, expression, name_token.line, name_token.column)
