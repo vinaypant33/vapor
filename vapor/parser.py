@@ -111,3 +111,14 @@ class Parser:
                 )
             self.skip_newlines()
         return Program(statements)
+
+    def statement(self):
+        token = self.current_token
+        if token.type == LET_IT:
+            return self.var_decl()
+        if token.type == PRINT:
+            return self.print_stmt()
+        if token.type == IDENTIFIER and self.peek().type == EQUAL:
+            return self.assignment()
+        expression = self.expr()
+        return ExprStatement(expression, token.line, token.column)
