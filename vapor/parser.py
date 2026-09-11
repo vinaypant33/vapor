@@ -92,3 +92,7 @@ class Parser:
             expected = TOKEN_DESCRIPTIONS.get(token_type, token_type)
             self.error(f"Expected {expected} but found {self.current_token.describe()}")
         return self.advance()
+
+    def skip_newlines(self):
+        while self.current_token.type == NEWLINE:
+            self.advance()
