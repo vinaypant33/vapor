@@ -157,3 +157,11 @@ class Parser:
             right = self.term()
             node = BinOp(node, OPERATOR_SYMBOLS[op.type], right, op.line, op.column)
         return node
+
+    def term(self):
+        node = self.factor()
+        while self.current_token.type in (STAR, SLASH, PERCENT):
+            op = self.advance()
+            right = self.factor()
+            node = BinOp(node, OPERATOR_SYMBOLS[op.type], right, op.line, op.column)
+        return node
