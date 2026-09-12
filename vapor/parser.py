@@ -147,3 +147,13 @@ class Parser:
                 expressions.append(self.expr())
         self.eat(RPAREN)
         return Print(expressions, start.line, start.column)
+
+    # ---- Expressions ----
+
+    def expr(self):
+        node = self.term()
+        while self.current_token.type in (PLUS, MINUS):
+            op = self.advance()
+            right = self.term()
+            node = BinOp(node, OPERATOR_SYMBOLS[op.type], right, op.line, op.column)
+        return node
