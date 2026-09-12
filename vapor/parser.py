@@ -165,3 +165,11 @@ class Parser:
             right = self.factor()
             node = BinOp(node, OPERATOR_SYMBOLS[op.type], right, op.line, op.column)
         return node
+
+    def factor(self):
+        token = self.current_token
+        if token.type in (PLUS, MINUS):
+            self.advance()
+            operand = self.factor()
+            return UnaryOp(OPERATOR_SYMBOLS[token.type], operand, token.line, token.column)
+        return self.primary()
