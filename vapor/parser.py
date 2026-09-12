@@ -173,3 +173,24 @@ class Parser:
             operand = self.factor()
             return UnaryOp(OPERATOR_SYMBOLS[token.type], operand, token.line, token.column)
         return self.primary()
+
+    def primary(self):
+        token = self.current_token
+        if token.type == NUMBER:
+            self.advance()
+            return Number(token.value, token.line, token.column)
+        if token.type == STRING:
+            self.advance()
+            return String(token.value, token.line, token.column)
+        if token.type == IDENTIFIER:
+            self.advance()
+            return Var(token.value, token.line, token.column)
+        if token.type == LPAREN:
+            self.advance()
+            node = self.expr()
+            self.eat(RPAREN)
+            return node
+        self.error(
+            "Expected a value (a number, a string, a variable or '(') "
+            f"but found {token.describe()}"
+        )
