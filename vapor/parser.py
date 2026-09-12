@@ -135,3 +135,15 @@ class Parser:
         self.eat(EQUAL)
         expression = self.expr()
         return Assign(name_token.value, expression, name_token.line, name_token.column)
+
+    def print_stmt(self):
+        start = self.eat(PRINT)
+        self.eat(LPAREN)
+        expressions = []
+        if self.current_token.type != RPAREN:
+            expressions.append(self.expr())
+            while self.current_token.type == COMMA:
+                self.eat(COMMA)
+                expressions.append(self.expr())
+        self.eat(RPAREN)
+        return Print(expressions, start.line, start.column)
