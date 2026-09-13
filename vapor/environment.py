@@ -13,3 +13,14 @@ class Environment:
 
     def __init__(self):
         self.vars = {}
+
+    def declare(self, name, value, line=None, column=None):
+        """Create a new variable (let_it). It must not exist yet."""
+        if name in self.vars:
+            raise VaporRuntimeError(
+                f"Variable '{name}' is already defined. "
+                f"Use '{name} = ...' to change its value.",
+                line,
+                column,
+            )
+        self.vars[name] = value
