@@ -15,3 +15,9 @@ class TestEnvironment(unittest.TestCase):
     def test_get_unknown_variable(self):
         with self.assertRaises(VaporRuntimeError):
             self.env.get("missing")
+
+    def test_declare_twice_is_an_error(self):
+        self.env.declare("x", 1)
+        with self.assertRaises(VaporRuntimeError) as context:
+            self.env.declare("x", 2)
+        self.assertIn("already defined", str(context.exception))
