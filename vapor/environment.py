@@ -24,3 +24,14 @@ class Environment:
                 column,
             )
         self.vars[name] = value
+
+    def assign(self, name, value, line=None, column=None):
+        """Change an existing variable. It must have been created first."""
+        if name not in self.vars:
+            raise VaporRuntimeError(
+                f"Variable '{name}' is not defined. "
+                f"Use 'let_it {name} = ...' to create it.",
+                line,
+                column,
+            )
+        self.vars[name] = value
