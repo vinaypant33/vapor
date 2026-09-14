@@ -11,3 +11,7 @@ class TestEnvironment(unittest.TestCase):
     def test_declare_and_get(self):
         self.env.declare("x", 10)
         self.assertEqual(self.env.get("x"), 10)
+
+    def test_get_unknown_variable(self):
+        with self.assertRaises(VaporRuntimeError):
+            self.env.get("missing")
