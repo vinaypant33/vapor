@@ -44,3 +44,6 @@ class Environment:
 
     def __contains__(self, name):
         return name in self.vars
+
+    def names(self):
+        return sorted(self.vars)
