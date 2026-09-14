@@ -35,3 +35,9 @@ class Environment:
                 column,
             )
         self.vars[name] = value
+
+    def get(self, name, line=None, column=None):
+        """Read the value of a variable."""
+        if name not in self.vars:
+            raise VaporRuntimeError(f"Variable '{name}' is not defined", line, column)
+        return self.vars[name]
