@@ -41,3 +41,6 @@ class Environment:
         if name not in self.vars:
             raise VaporRuntimeError(f"Variable '{name}' is not defined", line, column)
         return self.vars[name]
+
+    def __contains__(self, name):
+        return name in self.vars
