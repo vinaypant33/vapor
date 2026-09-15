@@ -21,3 +21,8 @@ class TestEnvironment(unittest.TestCase):
         with self.assertRaises(VaporRuntimeError) as context:
             self.env.declare("x", 2)
         self.assertIn("already defined", str(context.exception))
+
+    def test_assign_changes_value(self):
+        self.env.declare("x", 1)
+        self.env.assign("x", 2)
+        self.assertEqual(self.env.get("x"), 2)
