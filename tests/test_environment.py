@@ -31,3 +31,10 @@ class TestEnvironment(unittest.TestCase):
         with self.assertRaises(VaporRuntimeError) as context:
             self.env.assign("y", 5)
         self.assertIn("let_it y", str(context.exception))
+
+    def test_contains_and_names(self):
+        self.env.declare("b", 1)
+        self.env.declare("a", 2)
+        self.assertIn("a", self.env)
+        self.assertNotIn("c", self.env)
+        self.assertEqual(self.env.names(), ["a", "b"])
