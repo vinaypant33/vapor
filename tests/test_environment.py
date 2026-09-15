@@ -26,3 +26,8 @@ class TestEnvironment(unittest.TestCase):
         self.env.declare("x", 1)
         self.env.assign("x", 2)
         self.assertEqual(self.env.get("x"), 2)
+
+    def test_assign_unknown_variable_is_an_error(self):
+        with self.assertRaises(VaporRuntimeError) as context:
+            self.env.assign("y", 5)
+        self.assertIn("let_it y", str(context.exception))
