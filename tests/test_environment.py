@@ -38,3 +38,12 @@ class TestEnvironment(unittest.TestCase):
         self.assertIn("a", self.env)
         self.assertNotIn("c", self.env)
         self.assertEqual(self.env.names(), ["a", "b"])
+
+    def test_variable_can_change_type(self):
+        self.env.declare("x", 1)
+        self.env.assign("x", "now text")
+        self.assertEqual(self.env.get("x"), "now text")
+
+
+if __name__ == "__main__":
+    unittest.main()
