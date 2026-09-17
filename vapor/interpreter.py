@@ -17,3 +17,8 @@ def is_number(value):
 
 def type_name(value):
     return "number" if is_number(value) else "string"
+
+
+def to_text(value):
+    """How a value looks when printed with print()."""
+    return value if isinstance(value, str) else str(value)
