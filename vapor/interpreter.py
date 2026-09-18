@@ -38,3 +38,10 @@ class Interpreter:
     def __init__(self, env=None, output=None):
         self.env = env if env is not None else Environment()
         self.output = output
+
+    def interpret(self, program):
+        """Run every statement. Returns the value of the last statement."""
+        result = None
+        for statement in program.statements:
+            result = self.eval(statement)
+        return result
