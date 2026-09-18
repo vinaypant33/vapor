@@ -30,3 +30,11 @@ def format_value(value):
         escaped = value.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
         return f'"{escaped}"'
     return str(value)
+
+
+class Interpreter:
+    """Runs a Program node."""
+
+    def __init__(self, env=None, output=None):
+        self.env = env if env is not None else Environment()
+        self.output = output
