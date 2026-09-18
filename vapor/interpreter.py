@@ -45,3 +45,11 @@ class Interpreter:
         for statement in program.statements:
             result = self.eval(statement)
         return result
+
+    def eval(self, node):
+        method = getattr(self, f"eval_{type(node).__name__}", None)
+        if method is None:
+            raise VaporRuntimeError(
+                f"Don't know how to run {type(node).__name__}", node.line, node.column
+            )
+        return method(node)
