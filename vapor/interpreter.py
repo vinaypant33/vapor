@@ -53,3 +53,6 @@ class Interpreter:
                 f"Don't know how to run {type(node).__name__}", node.line, node.column
             )
         return method(node)
+
+    def error(self, message, node):
+        raise VaporRuntimeError(message, node.line, node.column)
