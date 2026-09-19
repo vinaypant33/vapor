@@ -66,3 +66,8 @@ class Interpreter:
         value = self.eval(node.expression)
         self.env.declare(node.name, value, node.line, node.column)
         return None
+
+    def eval_Assign(self, node):
+        value = self.eval(node.expression)
+        self.env.assign(node.name, value, node.line, node.column)
+        return None
