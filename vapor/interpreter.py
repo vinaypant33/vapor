@@ -79,3 +79,8 @@ class Interpreter:
 
     def eval_ExprStatement(self, node):
         return self.eval(node.expression)
+
+    # ---- Expressions ----
+
+    def eval_Number(self, node):
+        return node.value
