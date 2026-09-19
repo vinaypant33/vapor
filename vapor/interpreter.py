@@ -61,3 +61,8 @@ class Interpreter:
 
     def eval_Program(self, node):
         return self.interpret(node)
+
+    def eval_VarDecl(self, node):
+        value = self.eval(node.expression)
+        self.env.declare(node.name, value, node.line, node.column)
+        return None
