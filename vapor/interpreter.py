@@ -71,3 +71,8 @@ class Interpreter:
         value = self.eval(node.expression)
         self.env.assign(node.name, value, node.line, node.column)
         return None
+
+    def eval_Print(self, node):
+        values = [to_text(self.eval(expression)) for expression in node.expressions]
+        print(" ".join(values), file=self.output or sys.stdout)
+        return None
