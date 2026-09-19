@@ -56,3 +56,8 @@ class Interpreter:
 
     def error(self, message, node):
         raise VaporRuntimeError(message, node.line, node.column)
+
+    # ---- Statements ----
+
+    def eval_Program(self, node):
+        return self.interpret(node)
