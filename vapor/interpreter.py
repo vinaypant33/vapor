@@ -87,3 +87,6 @@ class Interpreter:
 
     def eval_String(self, node):
         return node.value
+
+    def eval_Var(self, node):
+        return self.env.get(node.name, node.line, node.column)
