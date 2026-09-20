@@ -84,3 +84,6 @@ class Interpreter:
 
     def eval_Number(self, node):
         return node.value
+
+    def eval_String(self, node):
+        return node.value
