@@ -96,3 +96,38 @@ class Interpreter:
         if not is_number(value):
             self.error(f"Cannot use '{node.op}' on a {type_name(value)}", node)
         return -value if node.op == "-" else value
+
+    def eval_BinOp(self, node):
+        left = self.eval(node.left)
+        right = self.eval(node.right)
+        op = node.op
+
+        # '+' joins text when either side is a string: "Age: " + 30
+        if op == "+" and (isinstance(left, str) or isinstance(right, str)):
+            return to_text(left) + to_text(right)
+
+        if not (is_number(left) and is_number(right)):
+            self.error(
+                f"Cannot use '{op}' with a {type_name(left)} and a {type_name(right)}",
+                node,
+            )
+
+        if op == "+":
+            return left + right
+        if op == "-":
+            return left - right
+        if op == "*":
+            return left * right
+        if op == "/":
+            if right == 0:
+                self.error("Division by zero", node)
+            # Keep whole numbers whole: 10 / 2 is 5, but 7 / 2 is 3.5
+            if isinstance(left, int) and isinstance(right, int) and left % right == 0:
+                return left // right
+            return left / right
+        if op == "%":
+            if right == 0:
+                self.error("Modulo by zero", node)
+            return left % right
+
+        self.error(f"Unknown operator '{op}'", node)
