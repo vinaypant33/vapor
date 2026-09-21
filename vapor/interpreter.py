@@ -90,3 +90,9 @@ class Interpreter:
 
     def eval_Var(self, node):
         return self.env.get(node.name, node.line, node.column)
+
+    def eval_UnaryOp(self, node):
+        value = self.eval(node.operand)
+        if not is_number(value):
+            self.error(f"Cannot use '{node.op}' on a {type_name(value)}", node)
+        return -value if node.op == "-" else value
