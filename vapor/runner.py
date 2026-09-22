@@ -16,3 +16,9 @@ def parse_source(source):
     """Lex and parse source code, returning the Program node."""
     tokens = Lexer(source).get_tokens()
     return Parser(tokens).parse()
+
+
+def run_source(source, env=None, output=None):
+    """Run Vapor source code. Returns the value of the last statement."""
+    program = parse_source(source)
+    return Interpreter(env, output).interpret(program)
