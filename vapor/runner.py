@@ -10,3 +10,9 @@ from .lexer import Lexer
 from .parser import Parser
 
 FILE_EXTENSION = ".vp"
+
+
+def parse_source(source):
+    """Lex and parse source code, returning the Program node."""
+    tokens = Lexer(source).get_tokens()
+    return Parser(tokens).parse()
