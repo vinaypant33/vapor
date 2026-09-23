@@ -27,3 +27,10 @@ class TestStatements(unittest.TestCase):
 
     def test_blank_lines_only(self):
         self.assertEqual(parse_source("\n\n;\n").statements, [])
+
+    def test_variable_declaration(self):
+        node = parse_one("let_it x = 5")
+        self.assertIsInstance(node, VarDecl)
+        self.assertEqual(node.name, "x")
+        self.assertIsInstance(node.expression, Number)
+        self.assertEqual(node.expression.value, 5)
