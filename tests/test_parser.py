@@ -34,3 +34,8 @@ class TestStatements(unittest.TestCase):
         self.assertEqual(node.name, "x")
         self.assertIsInstance(node.expression, Number)
         self.assertEqual(node.expression.value, 5)
+
+    def test_assignment(self):
+        node = parse_one("x = 7")
+        self.assertIsInstance(node, Assign)
+        self.assertEqual(node.name, "x")
