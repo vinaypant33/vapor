@@ -24,3 +24,6 @@ def parse_one(source):
 class TestStatements(unittest.TestCase):
     def test_empty_program(self):
         self.assertEqual(parse_source("").statements, [])
+
+    def test_blank_lines_only(self):
+        self.assertEqual(parse_source("\n\n;\n").statements, [])
