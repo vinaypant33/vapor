@@ -39,3 +39,9 @@ class TestStatements(unittest.TestCase):
         node = parse_one("x = 7")
         self.assertIsInstance(node, Assign)
         self.assertEqual(node.name, "x")
+
+    def test_print_with_one_value(self):
+        node = parse_one('print("hi")')
+        self.assertIsInstance(node, Print)
+        self.assertEqual(len(node.expressions), 1)
+        self.assertIsInstance(node.expressions[0], String)
