@@ -45,3 +45,8 @@ class TestStatements(unittest.TestCase):
         self.assertIsInstance(node, Print)
         self.assertEqual(len(node.expressions), 1)
         self.assertIsInstance(node.expressions[0], String)
+
+    def test_print_with_many_values(self):
+        node = parse_one("print(1, x, 3)")
+        self.assertEqual(len(node.expressions), 3)
+        self.assertIsInstance(node.expressions[1], Var)
