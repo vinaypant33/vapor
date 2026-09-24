@@ -50,3 +50,6 @@ class TestStatements(unittest.TestCase):
         node = parse_one("print(1, x, 3)")
         self.assertEqual(len(node.expressions), 3)
         self.assertIsInstance(node.expressions[1], Var)
+
+    def test_print_with_no_values(self):
+        self.assertEqual(parse_one("print()").expressions, [])
