@@ -53,3 +53,7 @@ class TestStatements(unittest.TestCase):
 
     def test_print_with_no_values(self):
         self.assertEqual(parse_one("print()").expressions, [])
+
+    def test_expression_statement(self):
+        node = parse_one("2 + 2")
+        self.assertIsInstance(node, ExprStatement)
