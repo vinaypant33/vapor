@@ -57,3 +57,7 @@ class TestStatements(unittest.TestCase):
     def test_expression_statement(self):
         node = parse_one("2 + 2")
         self.assertIsInstance(node, ExprStatement)
+
+    def test_many_statements(self):
+        program = parse_source("let_it a = 1\nlet_it b = 2\n\nprint(a + b)")
+        self.assertEqual(len(program.statements), 3)
