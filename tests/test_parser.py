@@ -61,3 +61,11 @@ class TestStatements(unittest.TestCase):
     def test_many_statements(self):
         program = parse_source("let_it a = 1\nlet_it b = 2\n\nprint(a + b)")
         self.assertEqual(len(program.statements), 3)
+
+
+class TestExpressions(unittest.TestCase):
+    def test_multiplication_before_addition(self):
+        node = parse_one("1 + 2 * 3").expression
+        self.assertIsInstance(node, BinOp)
+        self.assertEqual(node.op, "+")
+        self.assertEqual(node.right.op, "*")
