@@ -69,3 +69,8 @@ class TestExpressions(unittest.TestCase):
         self.assertIsInstance(node, BinOp)
         self.assertEqual(node.op, "+")
         self.assertEqual(node.right.op, "*")
+
+    def test_parentheses_change_order(self):
+        node = parse_one("(1 + 2) * 3").expression
+        self.assertEqual(node.op, "*")
+        self.assertEqual(node.left.op, "+")
