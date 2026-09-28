@@ -80,3 +80,8 @@ class TestExpressions(unittest.TestCase):
         self.assertEqual(node.op, "-")
         self.assertEqual(node.left.op, "-")
         self.assertEqual(node.right.value, 3)
+
+    def test_unary_minus(self):
+        node = parse_one("-x").expression
+        self.assertIsInstance(node, UnaryOp)
+        self.assertEqual(node.op, "-")
