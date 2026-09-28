@@ -74,3 +74,9 @@ class TestExpressions(unittest.TestCase):
         node = parse_one("(1 + 2) * 3").expression
         self.assertEqual(node.op, "*")
         self.assertEqual(node.left.op, "+")
+
+    def test_left_to_right(self):
+        node = parse_one("10 - 4 - 3").expression
+        self.assertEqual(node.op, "-")
+        self.assertEqual(node.left.op, "-")
+        self.assertEqual(node.right.value, 3)
