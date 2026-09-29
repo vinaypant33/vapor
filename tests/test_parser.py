@@ -89,3 +89,12 @@ class TestExpressions(unittest.TestCase):
     def test_double_unary_minus(self):
         node = parse_one("--5").expression
         self.assertIsInstance(node.operand, UnaryOp)
+
+
+class TestSyntaxErrors(unittest.TestCase):
+    def assert_syntax_error(self, source, text=None):
+        with self.assertRaises(ParseError) as context:
+            parse_source(source)
+        if text:
+            self.assertIn(text, str(context.exception))
+        return context.exception
