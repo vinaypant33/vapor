@@ -107,3 +107,6 @@ class TestSyntaxErrors(unittest.TestCase):
 
     def test_missing_value(self):
         self.assert_syntax_error("let_it x =", "Expected a value")
+
+    def test_missing_closing_paren(self):
+        self.assert_syntax_error("print(1 + 2", "Expected ')'")
