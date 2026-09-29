@@ -98,3 +98,6 @@ class TestSyntaxErrors(unittest.TestCase):
         if text:
             self.assertIn(text, str(context.exception))
         return context.exception
+
+    def test_missing_equals(self):
+        self.assert_syntax_error("let_it x 5", "Expected '='")
