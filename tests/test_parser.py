@@ -104,3 +104,6 @@ class TestSyntaxErrors(unittest.TestCase):
 
     def test_missing_name(self):
         self.assert_syntax_error("let_it = 5", "Expected a variable name")
+
+    def test_missing_value(self):
+        self.assert_syntax_error("let_it x =", "Expected a value")
