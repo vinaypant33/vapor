@@ -113,3 +113,6 @@ class TestSyntaxErrors(unittest.TestCase):
 
     def test_two_statements_on_one_line(self):
         self.assert_syntax_error("let_it x = 1 print(x)", "new line or ';'")
+
+    def test_keyword_cannot_be_variable_name(self):
+        self.assert_syntax_error("let_it print = 3")
