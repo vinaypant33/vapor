@@ -116,3 +116,11 @@ class TestSyntaxErrors(unittest.TestCase):
 
     def test_keyword_cannot_be_variable_name(self):
         self.assert_syntax_error("let_it print = 3")
+
+    def test_error_has_line_number(self):
+        error = self.assert_syntax_error("let_it a = 1\nlet_it b = * 2")
+        self.assertEqual(error.line, 2)
+
+
+if __name__ == "__main__":
+    unittest.main()
