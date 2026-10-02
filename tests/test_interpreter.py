@@ -10,3 +10,7 @@ def output_of(source):
     buffer = io.StringIO()
     run_source(source, output=buffer)
     return buffer.getvalue()
+
+
+def value_of(source):
+    return run_source(source, output=io.StringIO())
