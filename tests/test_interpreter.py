@@ -19,3 +19,7 @@ def value_of(source):
 class TestArithmetic(unittest.TestCase):
     def test_addition_and_subtraction(self):
         self.assertEqual(value_of("10 + 5 - 3"), 12)
+
+    def test_precedence(self):
+        self.assertEqual(value_of("2 + 3 * 4"), 14)
+        self.assertEqual(value_of("(2 + 3) * 4"), 20)
