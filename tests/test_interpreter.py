@@ -23,3 +23,8 @@ class TestArithmetic(unittest.TestCase):
     def test_precedence(self):
         self.assertEqual(value_of("2 + 3 * 4"), 14)
         self.assertEqual(value_of("(2 + 3) * 4"), 20)
+
+    def test_whole_division_stays_whole(self):
+        result = value_of("10 / 2")
+        self.assertEqual(result, 5)
+        self.assertIsInstance(result, int)
