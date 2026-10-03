@@ -14,3 +14,8 @@ def output_of(source):
 
 def value_of(source):
     return run_source(source, output=io.StringIO())
+
+
+class TestArithmetic(unittest.TestCase):
+    def test_addition_and_subtraction(self):
+        self.assertEqual(value_of("10 + 5 - 3"), 12)
