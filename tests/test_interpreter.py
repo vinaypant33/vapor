@@ -28,3 +28,6 @@ class TestArithmetic(unittest.TestCase):
         result = value_of("10 / 2")
         self.assertEqual(result, 5)
         self.assertIsInstance(result, int)
+
+    def test_division_with_remainder_gives_decimal(self):
+        self.assertEqual(value_of("7 / 2"), 3.5)
