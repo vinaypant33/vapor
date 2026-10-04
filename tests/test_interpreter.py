@@ -31,3 +31,6 @@ class TestArithmetic(unittest.TestCase):
 
     def test_division_with_remainder_gives_decimal(self):
         self.assertEqual(value_of("7 / 2"), 3.5)
+
+    def test_modulo(self):
+        self.assertEqual(value_of("17 % 5"), 2)
