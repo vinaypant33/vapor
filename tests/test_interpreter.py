@@ -34,3 +34,6 @@ class TestArithmetic(unittest.TestCase):
 
     def test_modulo(self):
         self.assertEqual(value_of("17 % 5"), 2)
+
+    def test_decimals(self):
+        self.assertAlmostEqual(value_of("0.5 * 3"), 1.5)
