@@ -37,3 +37,8 @@ class TestArithmetic(unittest.TestCase):
 
     def test_decimals(self):
         self.assertAlmostEqual(value_of("0.5 * 3"), 1.5)
+
+    def test_unary_minus(self):
+        self.assertEqual(value_of("-5 + 2"), -3)
+        self.assertEqual(value_of("--5"), 5)
+        self.assertEqual(value_of("+5"), 5)
