@@ -42,3 +42,8 @@ class TestArithmetic(unittest.TestCase):
         self.assertEqual(value_of("-5 + 2"), -3)
         self.assertEqual(value_of("--5"), 5)
         self.assertEqual(value_of("+5"), 5)
+
+    def test_division_by_zero(self):
+        with self.assertRaises(VaporRuntimeError) as context:
+            value_of("1 / 0")
+        self.assertIn("Division by zero", str(context.exception))
