@@ -51,3 +51,8 @@ class TestArithmetic(unittest.TestCase):
     def test_modulo_by_zero(self):
         with self.assertRaises(VaporRuntimeError):
             value_of("1 % 0")
+
+
+class TestStrings(unittest.TestCase):
+    def test_string_value(self):
+        self.assertEqual(value_of('"hello"'), "hello")
