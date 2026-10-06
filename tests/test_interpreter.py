@@ -47,3 +47,7 @@ class TestArithmetic(unittest.TestCase):
         with self.assertRaises(VaporRuntimeError) as context:
             value_of("1 / 0")
         self.assertIn("Division by zero", str(context.exception))
+
+    def test_modulo_by_zero(self):
+        with self.assertRaises(VaporRuntimeError):
+            value_of("1 % 0")
