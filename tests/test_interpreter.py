@@ -56,3 +56,6 @@ class TestArithmetic(unittest.TestCase):
 class TestStrings(unittest.TestCase):
     def test_string_value(self):
         self.assertEqual(value_of('"hello"'), "hello")
+
+    def test_join_strings(self):
+        self.assertEqual(value_of('"Va" + "por"'), "Vapor")
