@@ -68,3 +68,7 @@ class TestStrings(unittest.TestCase):
         with self.assertRaises(VaporRuntimeError) as context:
             value_of('"a" - "b"')
         self.assertIn("Cannot use '-'", str(context.exception))
+
+    def test_cannot_multiply_string(self):
+        with self.assertRaises(VaporRuntimeError):
+            value_of('"ab" * 3')
