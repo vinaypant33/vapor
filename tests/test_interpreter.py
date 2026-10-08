@@ -59,3 +59,7 @@ class TestStrings(unittest.TestCase):
 
     def test_join_strings(self):
         self.assertEqual(value_of('"Va" + "por"'), "Vapor")
+
+    def test_join_string_and_number(self):
+        self.assertEqual(value_of('"Age: " + 30'), "Age: 30")
+        self.assertEqual(value_of('1 + "st"'), "1st")
