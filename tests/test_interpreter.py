@@ -81,3 +81,6 @@ class TestStrings(unittest.TestCase):
 class TestVariables(unittest.TestCase):
     def test_declare_and_use(self):
         self.assertEqual(value_of("let_it x = 4\nx * x"), 16)
+
+    def test_reassign(self):
+        self.assertEqual(value_of("let_it x = 1\nx = x + 1\nx = x + 1\nx"), 3)
