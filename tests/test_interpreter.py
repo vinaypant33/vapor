@@ -93,3 +93,7 @@ class TestVariables(unittest.TestCase):
     def test_assign_before_declare(self):
         with self.assertRaises(VaporRuntimeError):
             value_of("x = 5")
+
+    def test_declare_twice(self):
+        with self.assertRaises(VaporRuntimeError):
+            value_of("let_it x = 1\nlet_it x = 2")
