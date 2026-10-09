@@ -89,3 +89,7 @@ class TestVariables(unittest.TestCase):
         with self.assertRaises(VaporRuntimeError) as context:
             value_of("print(nope)")
         self.assertIn("'nope' is not defined", str(context.exception))
+
+    def test_assign_before_declare(self):
+        with self.assertRaises(VaporRuntimeError):
+            value_of("x = 5")
