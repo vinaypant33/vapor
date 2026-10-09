@@ -84,3 +84,8 @@ class TestVariables(unittest.TestCase):
 
     def test_reassign(self):
         self.assertEqual(value_of("let_it x = 1\nx = x + 1\nx = x + 1\nx"), 3)
+
+    def test_undefined_variable(self):
+        with self.assertRaises(VaporRuntimeError) as context:
+            value_of("print(nope)")
+        self.assertIn("'nope' is not defined", str(context.exception))
