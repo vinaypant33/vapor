@@ -76,3 +76,8 @@ class TestStrings(unittest.TestCase):
     def test_cannot_negate_string(self):
         with self.assertRaises(VaporRuntimeError):
             value_of('-"text"')
+
+
+class TestVariables(unittest.TestCase):
+    def test_declare_and_use(self):
+        self.assertEqual(value_of("let_it x = 4\nx * x"), 16)
