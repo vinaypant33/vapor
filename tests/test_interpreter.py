@@ -72,3 +72,7 @@ class TestStrings(unittest.TestCase):
     def test_cannot_multiply_string(self):
         with self.assertRaises(VaporRuntimeError):
             value_of('"ab" * 3')
+
+    def test_cannot_negate_string(self):
+        with self.assertRaises(VaporRuntimeError):
+            value_of('-"text"')
