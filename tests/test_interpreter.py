@@ -113,3 +113,6 @@ class TestVariables(unittest.TestCase):
 class TestPrint(unittest.TestCase):
     def test_print_number(self):
         self.assertEqual(output_of("print(42)"), "42\n")
+
+    def test_print_string_without_quotes(self):
+        self.assertEqual(output_of('print("hi")'), "hi\n")
