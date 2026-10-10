@@ -97,3 +97,9 @@ class TestVariables(unittest.TestCase):
     def test_declare_twice(self):
         with self.assertRaises(VaporRuntimeError):
             value_of("let_it x = 1\nlet_it x = 2")
+
+    def test_shared_environment(self):
+        env = Environment()
+        run_source("let_it total = 10", env=env, output=io.StringIO())
+        run_source("total = total + 5", env=env, output=io.StringIO())
+        self.assertEqual(env.get("total"), 15)
