@@ -103,3 +103,8 @@ class TestVariables(unittest.TestCase):
         run_source("let_it total = 10", env=env, output=io.StringIO())
         run_source("total = total + 5", env=env, output=io.StringIO())
         self.assertEqual(env.get("total"), 15)
+
+    def test_runtime_error_has_line_number(self):
+        with self.assertRaises(VaporRuntimeError) as context:
+            value_of("let_it a = 1\n\nprint(b)")
+        self.assertEqual(context.exception.line, 3)
