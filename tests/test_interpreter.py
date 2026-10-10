@@ -108,3 +108,8 @@ class TestVariables(unittest.TestCase):
         with self.assertRaises(VaporRuntimeError) as context:
             value_of("let_it a = 1\n\nprint(b)")
         self.assertEqual(context.exception.line, 3)
+
+
+class TestPrint(unittest.TestCase):
+    def test_print_number(self):
+        self.assertEqual(output_of("print(42)"), "42\n")
