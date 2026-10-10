@@ -116,3 +116,6 @@ class TestPrint(unittest.TestCase):
 
     def test_print_string_without_quotes(self):
         self.assertEqual(output_of('print("hi")'), "hi\n")
+
+    def test_print_many_values_with_spaces(self):
+        self.assertEqual(output_of('let_it x = 3\nprint("x is", x, "!")'), "x is 3 !\n")
