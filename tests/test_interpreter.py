@@ -122,3 +122,6 @@ class TestPrint(unittest.TestCase):
 
     def test_print_nothing_gives_empty_line(self):
         self.assertEqual(output_of("print()"), "\n")
+
+    def test_print_returns_nothing(self):
+        self.assertIsNone(value_of("print(1)"))
