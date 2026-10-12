@@ -125,3 +125,18 @@ class TestPrint(unittest.TestCase):
 
     def test_print_returns_nothing(self):
         self.assertIsNone(value_of("print(1)"))
+
+    def test_whole_program(self):
+        source = """
+        # A small program
+        let_it price = 20
+        let_it qty = 3
+        let_it total = price * qty
+        print("Total:", total); total = total - 10
+        print("After discount:", total)
+        """
+        self.assertEqual(output_of(source), "Total: 60\nAfter discount: 50\n")
+
+
+if __name__ == "__main__":
+    unittest.main()
