@@ -1,35 +1,11 @@
 """
-Main entry point for the language to read and interpret for the code :
-
+Run a Vapor script:      python main.py examples/hello.vp
+Start the Vapor prompt:  python main.py
 """
 
+import sys
 
-from lexer import Lexer
-from parser import Parser
-from env import Environment
-from interpreter import Interpreter
+from vapor.cli import main
 
-# source_code  = eval(input(""))
-source_code  = """
-let_it x = 2 + 3
-print(x)
-"""
-
-'''
-Step by Step Interpretation for the code entered and the computation of the same : 
-'''
-
-
-# Lexing  :  
-lexer  = Lexer(source_code)
-tokens  = lexer.get_tokens()
-
-# Parsing : 
-parser = Parser(tokens)
-ast  = parser.parse()
-
-# Interpreation : 
-env = Environment()
-interpreter  = Interpreter(env)
-interpreter.interpret(ast)
-
+if __name__ == "__main__":
+    sys.exit(main())
