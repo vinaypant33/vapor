@@ -1,0 +1,2 @@
+# The first Vapor program
+print("Hello, Vapor!")
