@@ -1,0 +1,8 @@
+# Create variables with let_it
+let_it name = "Vinay"
+let_it age = 25
+let_it height = 1.75
+
+print("Name:", name)
+print("Age:", age)
+print("Height:", height)
