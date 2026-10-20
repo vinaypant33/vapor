@@ -1,0 +1,11 @@
+# Variables can change after they are created
+let_it counter = 0
+print("start:", counter)
+
+counter = counter + 1
+counter = counter + 1
+counter = counter + 1
+print("after three steps:", counter)
+
+counter = counter * 10
+print("times ten:", counter)
