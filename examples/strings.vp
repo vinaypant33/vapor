@@ -1,0 +1,9 @@
+# Strings and joining text with +
+let_it first = "Ada"
+let_it last = "Lovelace"
+let_it full = first + " " + last
+
+print(full)
+print("Born in " + 1815)
+print("Tabs\tand\nnew lines")
+print("She said \"hello\"")
