@@ -1,0 +1,3 @@
+# Several statements can share a line when separated by ;
+let_it x = 1; let_it y = 2; let_it z = 3
+print(x, y, z); print("sum:", x + y + z)
