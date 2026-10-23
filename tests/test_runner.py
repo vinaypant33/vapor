@@ -21,3 +21,9 @@ class TestRunFile(unittest.TestCase):
         buffer = io.StringIO()
         run_file(path, output=buffer)
         self.assertEqual(buffer.getvalue(), "x = 2\n")
+
+    def test_rejects_other_extensions(self):
+        path = self.write_temp("prog.txt", "print(1)")
+        with self.assertRaises(VaporError) as context:
+            run_file(path)
+        self.assertIn(".vp", str(context.exception))
