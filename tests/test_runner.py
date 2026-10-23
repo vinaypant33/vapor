@@ -27,3 +27,8 @@ class TestRunFile(unittest.TestCase):
         with self.assertRaises(VaporError) as context:
             run_file(path)
         self.assertIn(".vp", str(context.exception))
+
+    def test_missing_file(self):
+        with self.assertRaises(VaporError) as context:
+            run_file("does_not_exist.vp")
+        self.assertIn("File not found", str(context.exception))
