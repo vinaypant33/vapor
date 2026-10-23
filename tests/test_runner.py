@@ -15,3 +15,9 @@ class TestRunFile(unittest.TestCase):
         path = folder / name
         path.write_text(text, encoding="utf-8")
         return path
+
+    def test_runs_vp_file(self):
+        path = self.write_temp("prog.vp", 'let_it x = 2\nprint("x =", x)\n')
+        buffer = io.StringIO()
+        run_file(path, output=buffer)
+        self.assertEqual(buffer.getvalue(), "x = 2\n")
