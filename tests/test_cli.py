@@ -14,3 +14,9 @@ def run_cli(*args):
     with redirect_stdout(out), redirect_stderr(err):
         code = main(list(args))
     return code, out.getvalue(), err.getvalue()
+
+
+def write_script(name, text):
+    path = Path(tempfile.mkdtemp()) / name
+    path.write_text(text, encoding="utf-8")
+    return str(path)
