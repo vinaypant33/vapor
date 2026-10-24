@@ -32,3 +32,14 @@ class TestRunFile(unittest.TestCase):
         with self.assertRaises(VaporError) as context:
             run_file("does_not_exist.vp")
         self.assertIn("File not found", str(context.exception))
+
+
+class TestExamples(unittest.TestCase):
+    """Every script in examples/ must run without errors."""
+
+    def test_all_examples_run(self):
+        scripts = sorted(EXAMPLES.glob("*.vp"))
+        self.assertTrue(scripts, "no example scripts found")
+        for script in scripts:
+            with self.subTest(script=script.name):
+                run_file(script, output=io.StringIO())
