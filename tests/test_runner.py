@@ -43,3 +43,12 @@ class TestExamples(unittest.TestCase):
         for script in scripts:
             with self.subTest(script=script.name):
                 run_file(script, output=io.StringIO())
+
+    def test_hello_output(self):
+        buffer = io.StringIO()
+        run_file(EXAMPLES / "hello.vp", output=buffer)
+        self.assertEqual(buffer.getvalue(), "Hello, Vapor!\n")
+
+
+if __name__ == "__main__":
+    unittest.main()
