@@ -20,3 +20,10 @@ def write_script(name, text):
     path = Path(tempfile.mkdtemp()) / name
     path.write_text(text, encoding="utf-8")
     return str(path)
+
+
+class TestCli(unittest.TestCase):
+    def test_version(self):
+        code, out, _ = run_cli("--version")
+        self.assertEqual(code, 0)
+        self.assertIn(__version__, out)
