@@ -27,3 +27,8 @@ class TestCli(unittest.TestCase):
         code, out, _ = run_cli("--version")
         self.assertEqual(code, 0)
         self.assertIn(__version__, out)
+
+    def test_help(self):
+        code, out, _ = run_cli("--help")
+        self.assertEqual(code, 0)
+        self.assertIn("usage", out)
