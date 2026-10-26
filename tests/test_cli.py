@@ -32,3 +32,8 @@ class TestCli(unittest.TestCase):
         code, out, _ = run_cli("--help")
         self.assertEqual(code, 0)
         self.assertIn("usage", out)
+
+    def test_run_script(self):
+        code, out, _ = run_cli(write_script("ok.vp", 'print("from cli")'))
+        self.assertEqual(code, 0)
+        self.assertEqual(out, "from cli\n")
