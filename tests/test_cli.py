@@ -47,3 +47,18 @@ class TestCli(unittest.TestCase):
         code, _, err = run_cli("a.vp", "b.vp")
         self.assertEqual(code, 2)
         self.assertIn("usage", err)
+
+
+class TestRepl(unittest.TestCase):
+    def run_repl(self, lines):
+        inputs = iter(lines)
+
+        def fake_input(prompt):
+            try:
+                return next(inputs)
+            except StopIteration:
+                raise EOFError
+
+        output = io.StringIO()
+        start_repl(input_fn=fake_input, output=output)
+        return output.getvalue()
