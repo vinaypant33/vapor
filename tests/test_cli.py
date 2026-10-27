@@ -42,3 +42,8 @@ class TestCli(unittest.TestCase):
         code, _, err = run_cli(write_script("bad.vp", "print(missing)"))
         self.assertEqual(code, 1)
         self.assertIn("RuntimeError (line 1", err)
+
+    def test_too_many_arguments(self):
+        code, _, err = run_cli("a.vp", "b.vp")
+        self.assertEqual(code, 2)
+        self.assertIn("usage", err)
