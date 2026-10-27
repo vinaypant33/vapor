@@ -62,3 +62,7 @@ class TestRepl(unittest.TestCase):
         output = io.StringIO()
         start_repl(input_fn=fake_input, output=output)
         return output.getvalue()
+
+    def test_expression_value_is_shown(self):
+        out = self.run_repl(["2 + 3"])
+        self.assertIn("\n5\n", out)
