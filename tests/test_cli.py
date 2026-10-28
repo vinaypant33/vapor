@@ -66,3 +66,7 @@ class TestRepl(unittest.TestCase):
     def test_expression_value_is_shown(self):
         out = self.run_repl(["2 + 3"])
         self.assertIn("\n5\n", out)
+
+    def test_variables_are_kept_between_lines(self):
+        out = self.run_repl(["let_it x = 4", "x * 10"])
+        self.assertIn("40", out)
