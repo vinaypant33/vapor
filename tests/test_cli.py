@@ -70,3 +70,7 @@ class TestRepl(unittest.TestCase):
     def test_variables_are_kept_between_lines(self):
         out = self.run_repl(["let_it x = 4", "x * 10"])
         self.assertIn("40", out)
+
+    def test_strings_are_shown_with_quotes(self):
+        out = self.run_repl(['"hi"'])
+        self.assertIn('"hi"', out)
