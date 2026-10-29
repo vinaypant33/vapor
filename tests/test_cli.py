@@ -74,3 +74,8 @@ class TestRepl(unittest.TestCase):
     def test_strings_are_shown_with_quotes(self):
         out = self.run_repl(['"hi"'])
         self.assertIn('"hi"', out)
+
+    def test_errors_do_not_stop_the_repl(self):
+        out = self.run_repl(["print(nope)", "1 + 1"])
+        self.assertIn("not defined", out)
+        self.assertIn("\n2\n", out)
