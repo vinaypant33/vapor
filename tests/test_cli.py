@@ -79,3 +79,11 @@ class TestRepl(unittest.TestCase):
         out = self.run_repl(["print(nope)", "1 + 1"])
         self.assertIn("not defined", out)
         self.assertIn("\n2\n", out)
+
+    def test_exit(self):
+        out = self.run_repl(["exit", "print(99)"])
+        self.assertNotIn("99", out)
+
+
+if __name__ == "__main__":
+    unittest.main()
