@@ -32,3 +32,8 @@ Built in 2025
 - Statements on separate lines, or on one line with `;`
 - Clear error messages with the line and column of the problem
 - An interactive prompt (REPL) for trying things out
+
+## Requirements
+
+- Python 3.8 or newer
+- Nothing else: Vapor only uses the Python standard library
