@@ -143,3 +143,9 @@ vapor/
    comes from the grammar: `expr` handles `+ -`, `term` handles `* / %`.
 3. **Interpreter** (`interpreter.py`) walks the tree. Variables are stored in
    an `Environment` (`environment.py`).
+
+## Running the tests
+
+```
+python -m unittest
+```
