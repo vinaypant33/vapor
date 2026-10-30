@@ -1,0 +1,13 @@
+# Work out a shopping bill
+let_it apples = 4
+let_it apple_price = 0.5
+let_it bread = 2
+let_it bread_price = 1.25
+
+let_it subtotal = apples * apple_price + bread * bread_price
+let_it tax = subtotal * 0.2
+let_it total = subtotal + tax
+
+print("Subtotal:", subtotal)
+print("Tax:", tax)
+print("Total:", total)
