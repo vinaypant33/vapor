@@ -73,3 +73,24 @@ You can also install it, which gives you a `vapor` command:
 pip install .
 vapor examples/hello.vp
 ```
+
+## The language in one minute
+
+```
+# Comments start with #
+
+let_it price = 250          # create a variable
+let_it quantity = 3
+let_it total = price * quantity
+
+total = total - 50          # change an existing variable
+
+print("Total:", total)      # Total: 700
+print("Each: " + total / quantity)
+
+let_it a = 1; let_it b = 2  # ; puts two statements on one line
+print(a + b * 10)           # 21  (* before +)
+print((a + b) * 10)         # 30
+```
+
+The full guide is in [docs/LANGUAGE.md](docs/LANGUAGE.md).
