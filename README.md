@@ -94,3 +94,13 @@ print((a + b) * 10)         # 30
 ```
 
 The full guide is in [docs/LANGUAGE.md](docs/LANGUAGE.md).
+
+## Error messages
+
+Vapor tells you what went wrong and where:
+
+```
+SyntaxError (line 2, column 10): Expected '=' but found number 5
+RuntimeError (line 4, column 7): Variable 'totl' is not defined
+LexerError (line 1, column 12): Illegal character '$'
+```
