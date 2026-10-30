@@ -37,3 +37,39 @@ Built in 2025
 
 - Python 3.8 or newer
 - Nothing else: Vapor only uses the Python standard library
+
+## Running Vapor
+
+Run a script:
+
+```
+python main.py examples/hello.vp
+```
+
+or, the same thing using the package directly:
+
+```
+python -m vapor examples/hello.vp
+```
+
+Start the interactive prompt by leaving out the file name:
+
+```
+$ python main.py
+Vapor 1.0.0 - type 'exit' to quit
+vapor> let_it x = 5
+vapor> x * 2
+10
+vapor> print("x is", x)
+x is 5
+vapor> exit
+```
+
+Other options: `--help` and `--version`.
+
+You can also install it, which gives you a `vapor` command:
+
+```
+pip install .
+vapor examples/hello.vp
+```
