@@ -125,3 +125,21 @@ vapor/
 ├── tests/               unit tests
 └── docs/LANGUAGE.md     the language guide
 ```
+
+## How it works
+
+```
+ source code ──► Lexer ──► tokens ──► Parser ──► syntax tree ──► Interpreter ──► output
+ let_it x = 2+3           LET_IT          VarDecl(x)            x = 5
+                          IDENTIFIER:x      BinOp(+)
+                          EQUAL               2   3
+                          NUMBER:2 ...
+```
+
+1. **Lexer** (`lexer.py`) reads the text one character at a time and groups
+   characters into tokens, tracking the line and column of each one.
+2. **Parser** (`parser.py`) is a recursive-descent parser. It checks the
+   tokens follow the grammar and builds a tree of nodes. Operator precedence
+   comes from the grammar: `expr` handles `+ -`, `term` handles `* / %`.
+3. **Interpreter** (`interpreter.py`) walks the tree. Variables are stored in
+   an `Environment` (`environment.py`).
