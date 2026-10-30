@@ -104,3 +104,24 @@ SyntaxError (line 2, column 10): Expected '=' but found number 5
 RuntimeError (line 4, column 7): Variable 'totl' is not defined
 LexerError (line 1, column 12): Illegal character '$'
 ```
+
+## Project layout
+
+```
+vapor/
+├── main.py              run a script or start the prompt
+├── vapor/
+│   ├── tokens.py        token types
+│   ├── lexer.py         source text  -> tokens
+│   ├── ast_nodes.py     syntax tree nodes
+│   ├── parser.py        tokens       -> syntax tree
+│   ├── environment.py   the variable system
+│   ├── interpreter.py   syntax tree  -> results
+│   ├── errors.py        LexerError, SyntaxError, RuntimeError
+│   ├── runner.py        run a string or a .vp file
+│   ├── repl.py          the interactive prompt
+│   └── cli.py           command line options
+├── examples/            sample .vp scripts
+├── tests/               unit tests
+└── docs/LANGUAGE.md     the language guide
+```
