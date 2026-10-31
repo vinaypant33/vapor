@@ -1,0 +1,10 @@
+# Area and circumference of a circle
+let_it pi = 3.14159
+let_it radius = 10
+
+let_it area = pi * radius * radius
+let_it circumference = 2 * pi * radius
+
+print("Radius:", radius)
+print("Area:", area)
+print("Circumference:", circumference)
