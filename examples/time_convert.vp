@@ -1,0 +1,9 @@
+# Split a number of seconds into hours, minutes and seconds
+let_it total_seconds = 7384
+
+let_it hours = (total_seconds - total_seconds % 3600) / 3600
+let_it rest = total_seconds % 3600
+let_it minutes = (rest - rest % 60) / 60
+let_it seconds = rest % 60
+
+print(total_seconds, "seconds =", hours, "h", minutes, "m", seconds, "s")
