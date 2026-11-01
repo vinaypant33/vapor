@@ -12,3 +12,20 @@ python main.py my_script.vp
 ```
 
 Vapor refuses files with any other extension.
+
+## Statements
+
+A script is a list of statements, one per line:
+
+```
+let_it x = 1
+print(x)
+```
+
+Use `;` to put more than one statement on the same line:
+
+```
+let_it x = 1; let_it y = 2; print(x + y)
+```
+
+Blank lines are ignored.
