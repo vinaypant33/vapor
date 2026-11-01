@@ -29,3 +29,12 @@ let_it x = 1; let_it y = 2; print(x + y)
 ```
 
 Blank lines are ignored.
+
+## Comments
+
+Everything after `#` on a line is ignored:
+
+```
+# This whole line is a comment
+let_it speed = 60   # km per hour
+```
