@@ -70,3 +70,8 @@ Variable names use letters, digits and `_`, and cannot start with a digit:
 used as names.
 
 A variable can hold a number, then later a string, or the other way round.
+
+## Numbers
+
+Whole numbers (`42`) and decimal numbers (`3.14`). A decimal number needs a
+digit after the point: `5.` is an error, write `5.0`.
