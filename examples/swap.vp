@@ -1,0 +1,9 @@
+# Swap two variables using a third one
+let_it left = "apple"
+let_it right = "banana"
+print("before:", left, right)
+
+let_it temp = left
+left = right
+right = temp
+print("after:", left, right)
