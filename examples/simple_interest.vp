@@ -1,0 +1,10 @@
+# Simple interest = principal * rate * years / 100
+let_it principal = 5000
+let_it rate = 7.5
+let_it years = 3
+
+let_it interest = principal * rate * years / 100
+let_it amount = principal + interest
+
+print("Interest earned:", interest)
+print("Final amount:", amount)
