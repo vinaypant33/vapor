@@ -140,3 +140,17 @@ print()             # an empty line
 ```
 
 Strings are printed without their quotes.
+
+## The interactive prompt
+
+Run `python main.py` with no file to get a prompt. Variables stay around
+between lines, and typing an expression on its own shows its value:
+
+```
+vapor> let_it r = 4
+vapor> 3.14 * r * r
+50.24
+vapor> "text"
+"text"
+vapor> exit
+```
