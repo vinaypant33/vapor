@@ -154,3 +154,16 @@ vapor> "text"
 "text"
 vapor> exit
 ```
+
+## Errors
+
+There are three kinds of error. Each one shows the line and column:
+
+- **LexerError**: a character or literal that is not allowed, such as `$`,
+  a string with no closing quote, or `1.2.3`.
+- **SyntaxError**: the words are in the wrong order, such as
+  `let_it x 5` (missing `=`) or `print(1` (missing `)`).
+- **RuntimeError**: a problem while running, such as reading a variable that
+  does not exist, dividing by zero, or `"a" - 1`.
+
+A script stops at the first error.
