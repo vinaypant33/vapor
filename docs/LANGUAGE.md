@@ -167,3 +167,21 @@ There are three kinds of error. Each one shows the line and column:
   does not exist, dividing by zero, or `"a" - 1`.
 
 A script stops at the first error.
+
+## Grammar
+
+For reference, the full grammar of Vapor:
+
+```
+program    : statement (NEWLINE statement)* EOF
+statement  : 'let_it' IDENTIFIER '=' expr
+           | IDENTIFIER '=' expr
+           | 'print' '(' [expr (',' expr)*] ')'
+           | expr
+expr       : term (('+' | '-') term)*
+term       : factor (('*' | '/' | '%') factor)*
+factor     : ('+' | '-') factor | primary
+primary    : NUMBER | STRING | IDENTIFIER | '(' expr ')'
+```
+
+`NEWLINE` is a line break or `;`.
