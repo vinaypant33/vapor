@@ -128,3 +128,15 @@ print(1 + "st place")       # 1st place
 
 The other operators only work on numbers: `"a" - "b"` and `"ab" * 3` are
 errors.
+
+## print
+
+`print(...)` shows values, separated by spaces, and then starts a new line:
+
+```
+let_it x = 3
+print("x is", x)    # x is 3
+print()             # an empty line
+```
+
+Strings are printed without their quotes.
