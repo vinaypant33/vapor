@@ -89,3 +89,29 @@ string:
 | `\\` | a backslash |
 
 A string must end on the same line it starts.
+
+## Operators
+
+| Operator | Meaning | Example | Result |
+|---|---|---|---|
+| `+` | add | `7 + 2` | `9` |
+| `-` | subtract | `7 - 2` | `5` |
+| `*` | multiply | `7 * 2` | `14` |
+| `/` | divide | `7 / 2` | `3.5` |
+| `%` | remainder | `7 % 2` | `1` |
+| `-x` | negative | `-7` | `-7` |
+
+Dividing two whole numbers gives a whole number when there is no remainder
+(`10 / 2` is `5`), and a decimal when there is (`7 / 2` is `3.5`).
+
+Dividing by zero, or `% 0`, is an error.
+
+**Order of operations:** `*`, `/` and `%` happen before `+` and `-`.
+Operators of the same level go left to right. Use parentheses to change the
+order:
+
+```
+print(2 + 3 * 4)     # 14
+print((2 + 3) * 4)   # 20
+print(10 - 4 - 3)    # 3
+```
