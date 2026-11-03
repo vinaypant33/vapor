@@ -115,3 +115,16 @@ print(2 + 3 * 4)     # 14
 print((2 + 3) * 4)   # 20
 print(10 - 4 - 3)    # 3
 ```
+
+## Joining text
+
+`+` joins text when either side is a string. Numbers are turned into text:
+
+```
+let_it age = 30
+print("Age: " + age)        # Age: 30
+print(1 + "st place")       # 1st place
+```
+
+The other operators only work on numbers: `"a" - "b"` and `"ab" * 3` are
+errors.
