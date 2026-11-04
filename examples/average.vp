@@ -1,0 +1,12 @@
+# Average of five test scores
+let_it s1 = 78
+let_it s2 = 92
+let_it s3 = 85
+let_it s4 = 64
+let_it s5 = 91
+
+let_it total = s1 + s2 + s3 + s4 + s5
+let_it average = total / 5
+
+print("Total:", total)
+print("Average:", average)
