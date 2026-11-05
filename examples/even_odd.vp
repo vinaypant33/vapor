@@ -1,0 +1,6 @@
+# The remainder of dividing by 2 tells you if a number is even (0) or odd (1)
+let_it n = 17
+print(n, "% 2 =", n % 2)
+
+n = 42
+print(n, "% 2 =", n % 2)
