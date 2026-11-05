@@ -1,0 +1,6 @@
+# Body mass index = weight (kg) / height (m) squared
+let_it weight = 70
+let_it height = 1.75
+
+let_it bmi = weight / (height * height)
+print("BMI:", bmi)
