@@ -24,3 +24,8 @@
 - `* / %`, unary minus and parentheses
 - Strings and joining text with `+`
 - Errors show the line and column
+
+## 0.2.0
+
+- Rewritten lexer that tracks line and column
+- Decimal numbers, strings with escape sequences, comments and `;`
