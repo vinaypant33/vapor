@@ -5,3 +5,9 @@
 - Documentation: README and the full language guide in docs/LANGUAGE.md
 - 15 example scripts in examples/
 - pyproject.toml so Vapor can be installed with `pip install .`, giving a `vapor` command
+
+## 0.5.0
+
+- Command line: `python main.py script.vp`, `python -m vapor`, `--help`, `--version`
+- Interactive prompt (REPL) that keeps variables between lines
+- Only files ending in `.vp` are run
