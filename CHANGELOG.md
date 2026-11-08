@@ -17,3 +17,10 @@
 - Variable system: `let_it` creates a variable, `name = value` changes it
 - Clear errors for undefined variables and variables defined twice
 - `print` accepts any number of values
+
+## 0.3.0
+
+- New recursive-descent parser with operator precedence
+- `* / %`, unary minus and parentheses
+- Strings and joining text with `+`
+- Errors show the line and column
