@@ -11,3 +11,9 @@
 - Command line: `python main.py script.vp`, `python -m vapor`, `--help`, `--version`
 - Interactive prompt (REPL) that keeps variables between lines
 - Only files ending in `.vp` are run
+
+## 0.4.0
+
+- Variable system: `let_it` creates a variable, `name = value` changes it
+- Clear errors for undefined variables and variables defined twice
+- `print` accepts any number of values
