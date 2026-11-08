@@ -29,3 +29,8 @@
 
 - Rewritten lexer that tracks line and column
 - Decimal numbers, strings with escape sequences, comments and `;`
+
+## 0.1.0
+
+- First working version: `let_it`, `print`, `+` and `-`
+- Fixed bugs in the original lexer, parser and interpreter
